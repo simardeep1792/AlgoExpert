@@ -1,10 +1,9 @@
-
-Strategy
-
 1)Sort the Array
 2)Start two pointers one from start and one from end
-4)Start navigating the list until you found the two numbers
+3)Start navigating the list until you found the two numbers
+4)Return them into an array
 
+O(n) time and O(1) space
 def twoNumberSum(array, targetSum):
   array.sort()
   start = 0

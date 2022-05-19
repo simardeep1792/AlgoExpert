@@ -1,0 +1,27 @@
+
+Strategy
+
+1)Sort the Array
+2)Start two pointers one from start and one from end
+4)Start navigating the list until you found the two numbers
+
+def twoNumberSum(array, targetSum):
+  array.sort()
+  start = 0
+  end = len(array)-1
+  result = []
+  
+  while start < end:
+    valueSum = array[start] + array[end] 
+    if valueSum == targetSum:
+	  return [array[start],array[end]]
+    elif valueSum < targetSum:
+      start+=1
+    elif valueSum > targetSum:
+      end=end-1
+  return []
+  
+  
+  
+  
+

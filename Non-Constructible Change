@@ -1,0 +1,19 @@
+Minimum amount of change that you cannot create
+
+def nonConstructibleChange(coins):
+    coins.sort()
+	totalSum=0
+
+    for coin in coins:
+        if coin > totalSum + 1:
+            return totalSum + 1
+        totalSum += coin
+	return totalSum + 1
+    
+    
+    
+  
+  
+  
+
+

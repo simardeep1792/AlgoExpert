@@ -1,0 +1,23 @@
+Given:
+  Two teams; homa and away team
+  one winner and one loser
+  3 pts for win and 0 points for lose
+  competitions array in the form of [homeTeam,awayTeam]
+  
+
+def tournamentWinner(competitions, results):
+    tourn = {'winner':None}
+    for idx in range(len(competitions)):
+      result = abs(results[idx]-1)
+      team = competitions[idx][result]
+      
+      if tourn.get(team,None) == None :
+        tourn[team] = 3
+      else:
+        tourn[team] +=3
+        
+      if tourn['winner'] == None or tourn[tourn['winner']] < tourn[team]:
+        tourn['winner'] = team
+        
+       
+    return tourn['winner']

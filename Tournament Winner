@@ -4,6 +4,8 @@ Given:
   3 pts for win and 0 points for lose
   competitions array in the form of [homeTeam,awayTeam]
   
+  
+ #O(n) time | O(k) space where n is the number of competitions and K is the number of teams
 
 def tournamentWinner(competitions, results):
     tourn = {'winner':None}

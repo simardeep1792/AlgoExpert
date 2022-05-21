@@ -1,0 +1,24 @@
+Given: The distance between a node in a Binary Tree and the tree's root is called the nodes' depth. 
+
+Required: Write a function that takes in a Binary Tree and returns the sum of its nodes depths.
+Each BinaryTree node has an integer value, a left child node, and a right child node. Children nodes can either be BinaryTree nodes themselves or None/null.
+
+O(n) time | O(h) space - n is the number of the nodes in the binary tree and h is the height of the largest node in the binary tree.
+
+def nodeDepths(node):
+  return calculateNodeSum(node,0)
+
+def calculateNodeSum(node,value):
+  if node is None:
+    return 0 
+    
+  left = calculateNodeSum(node.left,value+1)
+  right = calculateNodeSum(node.right,value+1)
+  return value + left +right
+
+# This is the class of the input binary tree.
+class BinaryTree:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None

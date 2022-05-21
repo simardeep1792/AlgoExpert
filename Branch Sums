@@ -1,0 +1,31 @@
+Write a functions that takes in a Binary Tree and returns a list if its branch sums ordered from leftmost branch sum to its rightmost branch sum.
+
+class BinaryTree:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+O(N) Time Complexity | O(N) Space Complexity
+
+def branchSums(root):
+    sums = []
+    runningSum = 0
+    calculateBranchSums(root,runningSum,sums)
+    return sums
+    
+def calculateBranchSums(tree,runningSum,sums):
+  
+  if tree is None:
+    return
+    
+  runningSum += tree.value
+  
+  if tree.left is None and tree.right is None:
+    sums.append(runningSum)
+    return
+      
+  calculateBranchSums(tree.left, runningSum, sums)
+  calculateBranchSums(tree.right, runningSum, sums)
+
+    

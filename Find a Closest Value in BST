@@ -1,0 +1,33 @@
+Write a Fucntion that takes in Binary Search Tree and a target integer value and returns the closest value to that targte value in the BST.
+
+If you use the recursion the space complexity is O(n) or O(nlogn) , but for iteration we use O(1)
+
+Best O(log(n)) -- Time Complexity | O(1) -- Space Complexity
+Worst O(n) -- Time Complexity | O(1) -- Space Complexity
+
+def findClosestValueInBst(tree, target):
+  difference = None
+  differenceValue = None
+  while tree is not None:
+    absDiff = abs(target-tree.value)
+    
+    if difference is None or difference > absDiff:
+      difference = absDiff
+      differenceValue =tree.value
+    
+    if tree.value < target:
+      tree= tree.right
+    elif tree.value > target:
+      tree = tree.left
+    else:
+      return tree.value
+     
+  return differenceValue
+   
+
+# This is the class of the input tree. Do not edit.
+class BST:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None

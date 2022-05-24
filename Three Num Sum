@@ -5,6 +5,9 @@ triplets themseleves shoudl be in ascending order with respect to the numbers th
 
 O(n*n) time | O(n) space
 
+Time Complexity --- O(n*n) perform  the while loop with left pointer and right pointer
+Space Complexity  -- O(n) triplets we store we might end up storing every single number in the array so that is what o(n)
+
 def threeNumberSum(array, targetSum):
   result = []
   array.sort()

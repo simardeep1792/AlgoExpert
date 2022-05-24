@@ -1,0 +1,16 @@
+#You have got an array of integres and an integre. Write a function that oves all the instances of that integer in the array to the end of the array 
+and returns the array
+# O(n) time | O(1) space
+def moveElementToEnd(array, toMove):
+  start=0
+  end = len(array)-1
+  while start < end:
+    if array[end] == toMove:
+      end-=1
+    elif array[start] == toMove:
+      array[start],array[end] = array[end],array[start]
+      start+=1
+      end-=1
+    else:
+      start+=1
+     

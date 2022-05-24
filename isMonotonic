@@ -1,0 +1,16 @@
+def isMonotonic(array):
+   
+  isInc =False
+  isDec =False
+  for idx in range(1,len(array)):
+    currentValue = array[idx-1]
+    nextValue = array[idx]
+    
+    if currentValue == nextValue:
+      continue
+    elif currentValue<nextValue:
+      isInc=True
+    elif currentValue>nextValue:
+      isDec=True
+  
+  return True if len(array) <=1 else not (isInc and isDec)

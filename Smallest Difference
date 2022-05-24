@@ -1,0 +1,32 @@
+Takes in two non-empty array of integers, finds the pair of numbers whose absolute difference is closest to zero and returns an array containing these two numbers
+
+
+Time complecity  --- O(nlog(n) + mlog(m) where n is the length of first input array and m is the lebgth of second input array) | O(1) space
+def smallestDifference(arrayOne, arrayTwo):
+    arrayOne.sort()
+    arrayTwo.sort()
+    
+    pointerOne = 0
+    pointerTwo = 0
+    resultDiff = float('inf')
+    resultArray = []
+    
+    while pointerOne<len(arrayOne) and pointerTwo <len(arrayTwo):
+      elementOne = arrayOne[pointerOne]
+      elementTwo = arrayTwo[pointerTwo]
+      absDiff = abs(elementOne-elementTwo)
+      if absDiff == 0:
+        return [elementOne,elementTwo]
+      elif absDiff>0:
+        pointerOne+=1
+      elif absDiff<0:
+        pointerTwo+=1
+      
+      if absDiff < resultDiff:
+        resultDiff = absDiff
+        resultArray = [elementOne,elementTwo]
+    
+    return resultArray
+  
+    
+    

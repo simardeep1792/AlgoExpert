@@ -1,0 +1,27 @@
+Given: function takes in a non-empty array of distinct integers and an integre representing a target sum. The function should find all the triplets in the array that 
+sum up to the tagret sum and return a two-dimensional array of all these inputs.
+Numbers should be in ascending order
+triplets themseleves shoudl be in ascending order with respect to the numbers they hold.
+
+O(n*n) time | O(n) space
+
+def threeNumberSum(array, targetSum):
+  result = []
+  array.sort()
+  for idx in range(0,len(array)-1):
+    currentValue = idx
+    startValue = idx+1
+    lastValue = len(array)-1
+    while startValue < lastValue:
+      value = array[currentValue] + array[startValue]+ array[lastValue]
+      if value == targetSum:
+        result.append([array[currentValue], array[startValue], array[lastValue]])
+        startValue+=1
+        lastValue-=1
+      elif value > targetSum:
+        lastValue-=1
+      elif value < targetSum:
+        startValue+=1
+  return result
+
+    

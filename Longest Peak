@@ -1,0 +1,41 @@
+# Write a function that takes in an array of integres and returns the length of the longest peak in the array.
+
+def longestPeak(array):
+  
+  start = 1
+  end = len(array)-1
+  peakLength = 0
+  
+  while start < end:
+    peak = array[start] > array[start-1] and array[start] > array[start+1]
+    if not peak:
+      start+=1
+      continue
+    
+    backResult =  calculateBackPeak(start-1,start-2,array)
+    frontResult = calculateForwardPeak(start+1,start+2, array) 
+    newLength = backResult+frontResult + 3
+    start += frontResult+2
+    
+    if newLength > peakLength:
+        peakLength=newLength
+
+  return peakLength
+  
+  
+def calculateBackPeak(currentElement,prevElement,array):
+  count = 0
+  while prevElement >=0 and array[prevElement] < array[currentElement]:
+    prevElement -= 1
+    currentElement-=1
+    count+=1
+  return count  
+   
+   
+def calculateForwardPeak(currentElement,nextElement,array):
+  count = 0
+  while nextElement <= len(array)-1 and array[nextElement] < array[currentElement]:
+    nextElement += 1
+    currentElement +=1
+    count+=1
+  return count 

@@ -1,0 +1,10 @@
+
+O(n) Time Complexity | O(1) Space Complexity
+
+def firstDuplicateValue(array):
+  for idx,value in enumerate(array):
+    newIdx = abs(value)-1
+    if array[newIdx] < 0:
+      return newIdx+1
+    array[newIdx] *= -1
+  return -1 

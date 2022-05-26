@@ -1,0 +1,17 @@
+#O(nlogn) Time Complexity  Martcs@2021
+
+def mergeOverlappingIntervals(intervals):
+    intervals.sort(key=lambda x: x[0])
+    result= []
+    result.append(intervals[0])
+    
+    for idx in range(1,len(intervals)):
+      currentInterval = intervals[idx]
+      resultInterval = result[len(result)-1]
+      
+      if resultInterval[1] >= currentInterval[0]:
+        result[len(result)-1] = [resultInterval[0],max(resultInterval[1],currentInterval[0],currentInterval[1])]
+      else:
+        result.append(currentInterval)
+
+    return result

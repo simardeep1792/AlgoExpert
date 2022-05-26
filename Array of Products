@@ -1,0 +1,15 @@
+# O(n) Time | O(n) Space
+def arrayOfProducts(array):
+  arrayOne = [0 for _ in range(len(array))]
+  
+  element =1
+  for idx in range(len(array)):
+    arrayOne[idx] = element
+    element*= array[idx]
+  
+  element =1
+  for idx in reversed(range(len(array))):
+    arrayOne[idx]*= element
+    element*= array[idx]
+    
+  return arrayOne

@@ -1,0 +1,25 @@
+# This is an input class. Do not edit.
+Time Complexity O(N) -- We are traversing every single node once  
+Space Complexity O(D) -- D is the depth of tree
+class BST:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+
+def validateBst(tree):
+    # Write your code here.
+    return validateTree(tree,float('inf'),float('-inf'))
+
+def validateTree(tree,maxValue,minValue):
+
+  if tree is None:
+    return True
+  
+  if tree.value < minValue or tree.value >= maxValue:
+    return False
+  
+  leftTreeValid = validateTree(tree.left,tree.value,minValue)
+  rightTreeValid = validateTree(tree.right,maxValue,tree.value)
+  return leftTreeValid and rightTreeValid

@@ -1,0 +1,30 @@
+# This is an input class. Do not edit.
+class BST:
+    def __init__(self, value, left=None, right=None):
+        self.value = value
+        self.left = left
+        self.right = right
+
+
+def findKthLargestValueInBst(tree, k):
+    # Write your code here.
+    dummyClass = DummyClass(0,0)
+    findTheValue(dummyClass,tree,k)
+    return dummyClass.result
+
+
+def findTheValue(dummyClass,tree,k):
+  if tree is None or dummyClass.nosOfNodesVisited >= k:
+    return
+  
+  findTheValue(dummyClass,tree.right,k)
+  if dummyClass.nosOfNodesVisited < k :
+    dummyClass.nosOfNodesVisited +=1
+    dummyClass.result = tree.value
+    findTheValue(dummyClass,tree.left,k)
+
+
+class DummyClass:
+  def __init__(self,nosOfNodesVisited=0,result=None):
+    self.nosOfNodesVisited = nosOfNodesVisited
+    self.result= result
